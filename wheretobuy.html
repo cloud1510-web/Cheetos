@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          background-color: rgb(185, 94, 3);
+        }
+        td {
+          border: 10px solid  rgb(254, 153, 45);
+          text-align: center;
+          padding: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        td:hover {
+          background-color: rgb(130, 0, 0); /* Highlight effect */
+        }
+        .highlight {
+            background-color: yellow;}
+      </style>
+</head>
+<body>
+    <nav class="navbar"> 
+        <img src="./images/cheetos_logo.png" alt="" class="logo">
+    
+        <a href="index.html">HOME</a>
+        <a href="products.html">PRODUCTS</a>
+        <a href="recipes.html">RECIPES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="wheretobuy.html">WHERE TO BUY</a>
+        <a href="otherhand.html">OTHER HAND</a>
+    </nav>
+    <section class="title_buy">
+        <h1 >WHERE TO BUY</h1>
+    </section> 
+    <div class="empty_space"></div>
+    <section>
+        <form class="text-input-form" id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter what you are looking for" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+       
+</head>
+<body>
+    <table id="productTable">
+        <tr>
+          <td><img src="./images/Cheetos Crunchy_v2_0.png" alt="Product 1">
+            <br>CHEETOS Crunchy Cheese Flavored Snacks
+    
+        <p>$10.00</p>
+    </td>
+          <td>
+            <img src="./images/Cheetos FH Crunchy 2024  OK (1).png" alt="">
+            <br> CHEETOS Crunchy FLAMIN' HOT Cheese Flavored Snacks
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/Cheetos Crunchy FH Limon 2024 OK (1).png" alt=""
+            ><br> CHEETOS® Crunchy FLAMIN' HOT® Limón Cheese Flavored Snacks
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/Cheetos Mexican Style Street Corn.png" alt="">
+            <br>Cheetos® Mexican Street Corn Cheese Flavored Snacks
+            <p>$10.00</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./images/Cheetos XXTRA FH 2024 OK (1).png" alt="">
+            <br>CHEETOS® Crunchy XXTRA FLAMIN' HOT® Cheese Flavored Snacks
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/Cheetos Crunchy Cheddar Jalapeno_0.png" alt="">
+            <br>CHEETOS® Crunchy Cheddar Jalapeño Cheese Flavored Snacks
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/Fondo de 00028400712422_C1C1 eliminado (1)_0.png" alt="">
+            <br>CHEETOS® Flamin Hot® Tangy Chili Fusion Flavored Snacks
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/yellow.png" alt="">
+            <br>Cheetos® Crunchy Buffalo Flavored Snacks
+            <p>$10.00</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./images/Cheddar_2.png" alt="">
+            <br>SIMPLY CHEETOS® Puffs White Cheddar Cheese Flavored Snacks
+            <p>$12.00</p>
+          </td>
+          <td>
+            <img src="./images/Crunchy_2.png" alt="">
+            <br>SIMPLY CHEETOS® Crunchy White Cheddar Cheese
+            <p>$10.00</p>
+          </td>
+          <td>
+            <img src="./images/10ct Cheetos Crunchy Cheddar_2_13.png" alt="">
+            <br>CHEETOS® Crunchy Cheese Flavored Snacks 10 Multi-Pack
+            <p>$12.00</p>
+          </td>
+          <td>
+            <img src="./images/222.png" alt="">
+            <br>CHEETOS® Crunchy FLAMIN' HOT® Cheese Flavored Snacks 10 Multi-Pack
+            <p>$12.00</p>
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="./images/Cheetos-Mac-n-Cheese-bold-cheesy.png" alt="">
+                <br>CHEETOS® Mac 'n Cheese Bold & Cheesy Cup
+                 <p>$8.5</p>
+            </td>
+            <td>
+                <img src="./images/Cheetos-Mac-n-Cheese-flamin-hot.png" alt="">
+                <br>CHEETOS® Mac 'n Cheese FLAMIN' HOT® Cup
+                <p>$8.5</p>
+            </td>
+            <td>
+                <img src="./images/green.png" alt="">
+                <br>CHEETOS® Mac 'n Cheese Cheesy Jalapeño Cup
+                <p>$8.5</p>
+            </td>
+            <td>
+                <img src="./images/purple.png" alt="">
+                <br>CHEETOS® Mac 'n Cheese Four Cheesy Cup
+                <p>$8.5</p>
+            </td>
+        </tr>
+      </table>
+
+      
+    <script>
+     
+        const form = document.getElementById('searchForm');
+        const input = document.getElementById('searchInput');
+        const table = document.getElementById('productTable');
+        const cells = table.querySelectorAll('td');
+
+        // Add event listener for form submission
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const searchQuery = input.value.trim().toLowerCase();
+
+            // Clear previous highlights
+            cells.forEach(cell => {
+                cell.classList.remove('highlight');
+            });
+
+            // Highlight matching products
+            let found = false;
+            cells.forEach(cell => {
+                if (cell.textContent.toLowerCase().includes(searchQuery)) {
+                    cell.classList.add('highlight');
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert('No matching products found!');
+            }
+        });
+    </script>
+     <footer class="foot"> 
+      <div class="textfooter">
+<a href="" class="footer_text">Where to buy</a>
+<a href="" class="footer_text">Contact us</a>
+<a href="" class="footer_text">Terms&Conditions</a>
+<a href="" class="footer_text">Privacy Policy</a>
+<a href="" class="footer_text">Accessibility Statement</a>
+</div>
+<div class="footer_logo"> <img  src="./images/cheetos_logo.png" alt=""> </div>
+<p>© 2024 Frito-Lay North America, Inc. a Division of PepsiCo</p>
+</footer>
+
+</body>
+</html>
